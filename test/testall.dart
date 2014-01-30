@@ -1,7 +1,7 @@
 import 'package:unittest/unittest.dart';
 import 'package:heroicdart/printutils.dart' hide print;
 
- 
+// level 1
 import 'package:heroicdart/level1/ex01.dart' as l01ex01;
 import 'package:heroicdart/level1/ex02.dart' as l01ex02;
 import 'package:heroicdart/level1/ex03.dart' as l01ex03;
@@ -12,23 +12,41 @@ import 'package:heroicdart/level1/ex07.dart' as l01ex07;
 import 'package:heroicdart/level1/ex08.dart' as l01ex08;
 import 'package:heroicdart/level1/ex09.dart' as l01ex09;
 
+// level 2
+import 'package:heroicdart/level2/ex01.dart' as l02ex01;
+import 'package:heroicdart/level2/ex02.dart' as l02ex02;
+import 'package:heroicdart/level2/ex03.dart' as l02ex03;
+import 'package:heroicdart/level2/ex04.dart' as l02ex04;
+import 'package:heroicdart/level2/ex05.dart' as l02ex05;
+import 'package:heroicdart/level2/ex06.dart' as l02ex06;
+import 'package:heroicdart/level2/ex07.dart' as l02ex07;
+import 'package:heroicdart/level2/ex08.dart' as l02ex08;
+import 'package:heroicdart/level2/ex09a.dart' as l02ex09a;
+import 'package:heroicdart/level2/ex09b.dart' as l02ex09b;
 
-main() { 
-  group("Level 1:", level1tests);
-}
-
+// don't bother actually outputting all the "print" statements to the console.
 final PRINT_TO_CONSOLE = false;
 
+// wrap expect
 expectTrue(actual) => expect(actual,true);
 
-level1tests() {
-  setUp() => printSetup(printToConsole:PRINT_TO_CONSOLE);
+main() { 
+  group("", () {
+    // note: add this
+    // printSetup(printToConsole:true);
+    // to the beginning of a test to see just that test print something
 
-  // note: add this
-  // printSetup(printToConsole:true);
-  // to the beginning of a test to see just that test print something
-
+    setUp(() => printSetup(printToConsole:PRINT_TO_CONSOLE)); // clear the print buffer before each test
+    
+    group("Level 1:", level1tests);
+    group("Level 2:", level2tests);
+  });
   
+}
+
+
+
+level1tests() {
   group("Dart's print() function:", () {
     test("ex 1", () {
       l01ex01.main();
@@ -117,3 +135,80 @@ text"""));
 
 }
 
+level2tests() {
+    group("Functions are not sidekicks:", () {
+    
+    test("ex 1", () {
+      l02ex01.main();
+      expectTrue(isPrinted('The Dart says "Code like a hero with Dart"',0));
+      expectTrue(isPrinted('The Dart says "Code like a hero with Dart"',1));
+      expectTrue(isPrinted('The Dart says "Code like a hero with Dart"',2));      
+    });
+    
+    test("ex 2", () {
+      var error = null;
+      try {
+        l02ex02.main();
+      }
+      on TypeError catch (e) {
+        error = e;
+      }
+      expectTrue(isPrinted('The Dart says "Code like a hero with Dart"',0));
+      expectTrue(isPrinted('The Dart says "Code like a hero with Dart"',1));
+      expectTrue(isPrinted('The Dart says "Code like a hero with Dart"',2));
+      expectTrue(error.toString().contains("type 'bool' is not a subtype of type 'String' of 'name'."));      
+    });
+    
+    test("ex 3", () {
+      l02ex03.main();
+      expectTrue(isPrinted('The Dart says "Code like a hero with Dart"',0));
+      expectTrue(isPrinted('The Dart says "Code like a hero with Dart"',1));
+      expectTrue(isPrinted('The Dart says "Code like a hero with Dart"',2));      
+    });
+    
+    test("ex 4", () {
+      l02ex04.main();
+      expectTrue(isPrinted('The Dart is a Hero'));            
+    });
+    
+    test("ex 5", () {
+      l02ex05.main();
+      expectTrue(isPrinted('The Dart is a Hero'));            
+    });
+    
+    test("ex 6", () {
+      l02ex06.main();
+      expectTrue(isPrinted('The Dart is a...',0));
+      expectTrue(isPrinted('Hero',1));
+      expectTrue(isPrinted('Prof. Polymer is a...',2));
+      expectTrue(isPrinted('Sidekick',3));
+    });
+    
+    test("ex 7", () {
+      l02ex07.main();
+      expectTrue(isPrinted('Look, there goes The Dart'));            
+    });
+    
+    test("ex 8", () {
+      l02ex08.main();
+      expectTrue(isPrinted('Look, there goes The Dart',0));
+      expectTrue(isPrinted('LOOK, THERE GOES THE DART',1));
+    });
+    
+    group("ex 9", () {
+      test("DEBUG=false", () {
+        l02ex09a.main();
+        expectTrue(isPrinted('Look, there goes The Dart'));      
+        expect(isPrinted('LOG: We have a hero: The Dart'), false);
+      });
+      
+      test("DEBUG=true", () {
+        printSetup(printToConsole: true);
+        l02ex09b.main();
+        expectTrue(isPrinted('LOG: We have a hero: The Dart',0));
+        expectTrue(isPrinted('Look, there goes The Dart',1));      
+      });
+    });
+  });
+  
+}
