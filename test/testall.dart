@@ -24,6 +24,8 @@ import 'package:heroicdart/level2/ex08.dart' as l02ex08;
 import 'package:heroicdart/level2/ex09a.dart' as l02ex09a;
 import 'package:heroicdart/level2/ex09b.dart' as l02ex09b;
 import 'package:heroicdart/level2/ex10.dart' as l02ex10;
+import 'package:heroicdart/level2/ex11.dart' as l02ex11;
+import 'package:heroicdart/level2/ex12.dart' as l02ex12;
 
 // don't bother actually outputting all the "print" statements to the console.
 final PRINT_TO_CONSOLE = false;
@@ -212,6 +214,26 @@ level2tests() {
     
     test("ex 10", () {
         // l02ex10.main(); - this is a syntax error, so can't even run this
+    });
+    
+    test("ex 11", () {
+      l02ex11.main();
+      expectTrue(isPrinted('LOG: Look, there goes The Dart',0));
+      expectTrue(isPrinted('Move along please... nothing to see here',1));
+    });
+    
+    test("ex 12", () {
+      var error = null;
+      try {
+        l02ex12.main();
+      }
+      on NoSuchMethodError catch (e) {
+        error = e;
+      }
+      expectTrue(isPrinted('The Dart says "Code like a hero"',0));
+      expectTrue(isPrinted('The Dart says "Code like a hero"',1));
+      expectTrue(isPrinted('The Dart says "Code like a hero"',2));
+      expectTrue(error.toString().contains("The null object does not have a method '>'"));
     });
   });
   
