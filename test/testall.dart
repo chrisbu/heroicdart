@@ -88,7 +88,6 @@ level1tests() {
         l01ex06.main_after_editing();
       }
       on TypeError catch (e) {
-        print(e);
         error = e;
       }
       expectTrue(error.toString().contains("type 'int' is not a subtype of type 'String' of 'hero'."));
