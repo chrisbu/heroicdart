@@ -1,0 +1,1 @@
+[![Build Status](https://drone.io/github.com/chrisbu/heroicdart/status.png)](https://drone.io/github.com/chrisbu/heroicdart/latest)
