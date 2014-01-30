@@ -1,5 +1,4 @@
 import 'package:unittest/unittest.dart';
-import 'package:unittest/compact_vm_config.dart';
 import 'package:heroicdart/printutils.dart' hide print;
 
  
@@ -89,6 +88,7 @@ level1tests() {
         l01ex06.main_after_editing();
       }
       on TypeError catch (e) {
+        print(e);
         error = e;
       }
       expectTrue(error.toString().contains("type 'int' is not a subtype of type 'String' of 'hero'."));
