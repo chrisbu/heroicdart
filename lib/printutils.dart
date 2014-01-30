@@ -24,7 +24,7 @@ core.bool isPrinted(expect, [elementIndex]) {
     return printed.contains(expect);
   }
   else {
-    return printed.length < elementIndex && printed[elementIndex] == expect;  
+    return elementIndex < printed.length  && printed[elementIndex] == expect;  
   }
 }
 
