@@ -23,6 +23,7 @@ import 'package:heroicdart/level2/ex07.dart' as l02ex07;
 import 'package:heroicdart/level2/ex08.dart' as l02ex08;
 import 'package:heroicdart/level2/ex09a.dart' as l02ex09a;
 import 'package:heroicdart/level2/ex09b.dart' as l02ex09b;
+import 'package:heroicdart/level2/ex10.dart' as l02ex10;
 
 // don't bother actually outputting all the "print" statements to the console.
 final PRINT_TO_CONSOLE = false;
@@ -203,11 +204,14 @@ level2tests() {
       });
       
       test("DEBUG=true", () {
-        printSetup(printToConsole: true);
         l02ex09b.main();
         expectTrue(isPrinted('LOG: We have a hero: The Dart',0));
         expectTrue(isPrinted('Look, there goes The Dart',1));      
       });
+    });
+    
+    test("ex 10", () {
+        // l02ex10.main(); - this is a syntax error, so can't even run this
     });
   });
   
