@@ -39,6 +39,6 @@ core.bool printedContains(expect) {
 
 // reset the printed buffer
 printSetup({printToConsole:false}) {
-  printed = [];
+  printed.clear();
   showOutput = printToConsole;
 }
