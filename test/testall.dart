@@ -26,6 +26,8 @@ import 'package:heroicdart/level2/ex09b.dart' as l02ex09b;
 import 'package:heroicdart/level2/ex10.dart' as l02ex10;
 import 'package:heroicdart/level2/ex11.dart' as l02ex11;
 import 'package:heroicdart/level2/ex12.dart' as l02ex12;
+import 'package:heroicdart/level2/ex13.dart' as l02ex13;
+import 'package:heroicdart/level2/ex14.dart' as l02ex14;
 
 // don't bother actually outputting all the "print" statements to the console.
 final PRINT_TO_CONSOLE = false;
@@ -235,6 +237,19 @@ level2tests() {
       expectTrue(isPrinted('The Dart says "Code like a hero"',2));
       expectTrue(error.toString().contains("The null object does not have a method '>'"));
     });
-  });
-  
+    
+    test("ex 13", () {
+      l02ex13.main();
+      expectTrue(isPrinted('The Dart says "Code like a hero"',0));
+      expectTrue(isPrinted('The Dart says "Code like a hero"',1));
+      expectTrue(isPrinted('The Dart says "Code like a hero"',2));
+      expectTrue(isPrinted('Prof. Polymer says "ShadowDOM is cool"',3));
+      expectTrue(isPrinted('Captain Dart says "Hello"',4));
+    });
+    
+    test("ex 14", () {
+      l02ex14.main();
+      expectTrue(isPrinted('The Dart is a Hero'));//      
+    });
+  });  
 }
