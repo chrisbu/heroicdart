@@ -337,7 +337,7 @@ level2tests() {
       
     });
     
-    group("Functions as arguments:", () {
+    group("Closures:", () {
       test("ex 25", () {
         printSetup(printToConsole: true);
         l02ex25.main();
