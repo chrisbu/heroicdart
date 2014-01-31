@@ -28,6 +28,9 @@ import 'package:heroicdart/level2/ex11.dart' as l02ex11;
 import 'package:heroicdart/level2/ex12.dart' as l02ex12;
 import 'package:heroicdart/level2/ex13.dart' as l02ex13;
 import 'package:heroicdart/level2/ex14.dart' as l02ex14;
+import 'package:heroicdart/level2/ex15.dart' as l02ex15;
+import 'package:heroicdart/level2/ex16.dart' as l02ex16;
+import 'package:heroicdart/level2/ex17.dart' as l02ex17;
 
 // don't bother actually outputting all the "print" statements to the console.
 final PRINT_TO_CONSOLE = false;
@@ -141,44 +144,48 @@ text"""));
 }
 
 level2tests() {
-    group("Functions are not sidekicks:", () {
+  group("Functions are not sidekicks:", () {
     
-    test("ex 1", () {
-      l02ex01.main();
-      expectTrue(isPrinted('The Dart says "Code like a hero with Dart"',0));
-      expectTrue(isPrinted('The Dart says "Code like a hero with Dart"',1));
-      expectTrue(isPrinted('The Dart says "Code like a hero with Dart"',2));      
+    group(":", () {      
+      test("ex 1", () {
+        l02ex01.main();
+        expectTrue(isPrinted('The Dart says "Code like a hero with Dart"',0));
+        expectTrue(isPrinted('The Dart says "Code like a hero with Dart"',1));
+        expectTrue(isPrinted('The Dart says "Code like a hero with Dart"',2));      
+      });
+      
+      test("ex 2", () {
+        var error = null;
+        try {
+          l02ex02.main();
+        }
+        on TypeError catch (e) {
+          error = e;
+        }
+        expectTrue(isPrinted('The Dart says "Code like a hero with Dart"',0));
+        expectTrue(isPrinted('The Dart says "Code like a hero with Dart"',1));
+        expectTrue(isPrinted('The Dart says "Code like a hero with Dart"',2));
+        expectTrue(error.toString().contains("type 'bool' is not a subtype of type 'String' of 'name'."));      
+      });
     });
     
-    test("ex 2", () {
-      var error = null;
-      try {
-        l02ex02.main();
-      }
-      on TypeError catch (e) {
-        error = e;
-      }
-      expectTrue(isPrinted('The Dart says "Code like a hero with Dart"',0));
-      expectTrue(isPrinted('The Dart says "Code like a hero with Dart"',1));
-      expectTrue(isPrinted('The Dart says "Code like a hero with Dart"',2));
-      expectTrue(error.toString().contains("type 'bool' is not a subtype of type 'String' of 'name'."));      
-    });
-    
-    test("ex 3", () {
-      l02ex03.main();
-      expectTrue(isPrinted('The Dart says "Code like a hero with Dart"',0));
-      expectTrue(isPrinted('The Dart says "Code like a hero with Dart"',1));
-      expectTrue(isPrinted('The Dart says "Code like a hero with Dart"',2));      
-    });
-    
-    test("ex 4", () {
-      l02ex04.main();
-      expectTrue(isPrinted('The Dart is a Hero'));            
-    });
-    
-    test("ex 5", () {
-      l02ex05.main();
-      expectTrue(isPrinted('The Dart is a Hero'));            
+    group("Function return values:", () {
+      test("ex 3", () {
+        l02ex03.main();
+        expectTrue(isPrinted('The Dart says "Code like a hero with Dart"',0));
+        expectTrue(isPrinted('The Dart says "Code like a hero with Dart"',1));
+        expectTrue(isPrinted('The Dart says "Code like a hero with Dart"',2));      
+      });
+      
+      test("ex 4", () {
+        l02ex04.main();
+        expectTrue(isPrinted('The Dart is a Hero'));            
+      });
+      
+      test("ex 5", () {
+        l02ex05.main();
+        expectTrue(isPrinted('The Dart is a Hero'));            
+      });
     });
     
     test("ex 6", () {
@@ -189,18 +196,20 @@ level2tests() {
       expectTrue(isPrinted('Sidekick',3));
     });
     
-    test("ex 7", () {
-      l02ex07.main();
-      expectTrue(isPrinted('Look, there goes The Dart'));            
+    group("Single-line functions:", () {
+      test("ex 7", () {
+        l02ex07.main();
+        expectTrue(isPrinted('Look, there goes The Dart'));            
+      });
+      
+      test("ex 8", () {
+        l02ex08.main();
+        expectTrue(isPrinted('Look, there goes The Dart',0));
+        expectTrue(isPrinted('LOOK, THERE GOES THE DART',1));
+      });
     });
     
-    test("ex 8", () {
-      l02ex08.main();
-      expectTrue(isPrinted('Look, there goes The Dart',0));
-      expectTrue(isPrinted('LOOK, THERE GOES THE DART',1));
-    });
-    
-    group("ex 9", () {
+    group("Variables outside functions: ex 9", () {
       test("DEBUG=false", () {
         l02ex09a.main();
         expectTrue(isPrinted('Look, there goes The Dart'));      
@@ -214,42 +223,66 @@ level2tests() {
       });
     });
     
-    test("ex 10", () {
-        // l02ex10.main(); - this is a syntax error, so can't even run this
+    group("Lexical scope:", () {
+      test("ex 10", () {
+          // l02ex10.main(); - this is a syntax error, so can't even run this
+      });
+      
+      test("ex 11", () {
+        l02ex11.main();
+        expectTrue(isPrinted('LOG: Look, there goes The Dart',0));
+        expectTrue(isPrinted('Move along please... nothing to see here',1));
+      });
     });
     
-    test("ex 11", () {
-      l02ex11.main();
-      expectTrue(isPrinted('LOG: Look, there goes The Dart',0));
-      expectTrue(isPrinted('Move along please... nothing to see here',1));
+    group("Optional positional parameters:", () {
+      test("ex 12", () {
+        var error = null;
+        try {
+          l02ex12.main();
+        }
+        on NoSuchMethodError catch (e) {
+          error = e;
+        }
+        expectTrue(isPrinted('The Dart says "Code like a hero"',0));
+        expectTrue(isPrinted('The Dart says "Code like a hero"',1));
+        expectTrue(isPrinted('The Dart says "Code like a hero"',2));
+        expectTrue(error.toString().contains("The null object does not have a method '>'"));
+      });
+      
+      test("ex 13", () {
+        l02ex13.main();
+        expectTrue(isPrinted('The Dart says "Code like a hero"',0));
+        expectTrue(isPrinted('The Dart says "Code like a hero"',1));
+        expectTrue(isPrinted('The Dart says "Code like a hero"',2));
+        expectTrue(isPrinted('Prof. Polymer says "ShadowDOM is cool"',3));
+        expectTrue(isPrinted('Captain Dart says "Hello"',4));
+      });
+      
+      test("ex 14", () {
+        l02ex14.main();
+        expectTrue(isPrinted('The Dart is a Hero'));      
+      });
+    
+      test("ex 15", () {
+        l02ex15.main();
+        expectTrue(isPrinted('The Dart is a Superhero',0));      
+        expectTrue(isPrinted('Prof. Polymer is a great sidekick',1));
+      });
     });
     
-    test("ex 12", () {
-      var error = null;
-      try {
-        l02ex12.main();
-      }
-      on NoSuchMethodError catch (e) {
-        error = e;
-      }
-      expectTrue(isPrinted('The Dart says "Code like a hero"',0));
-      expectTrue(isPrinted('The Dart says "Code like a hero"',1));
-      expectTrue(isPrinted('The Dart says "Code like a hero"',2));
-      expectTrue(error.toString().contains("The null object does not have a method '>'"));
-    });
-    
-    test("ex 13", () {
-      l02ex13.main();
-      expectTrue(isPrinted('The Dart says "Code like a hero"',0));
-      expectTrue(isPrinted('The Dart says "Code like a hero"',1));
-      expectTrue(isPrinted('The Dart says "Code like a hero"',2));
-      expectTrue(isPrinted('Prof. Polymer says "ShadowDOM is cool"',3));
-      expectTrue(isPrinted('Captain Dart says "Hello"',4));
-    });
-    
-    test("ex 14", () {
-      l02ex14.main();
-      expectTrue(isPrinted('The Dart is a Hero'));//      
+    group("Optional named parameters:", () {
+      test("ex 16", () {
+        l02ex16.main();
+        expectTrue(isPrinted('The Dart says "Hello"',0));      
+        expectTrue(isPrinted('The Dart says "Hello"',1));
+        expectTrue(isPrinted('The Dart says "Hello"',2));
+      });
+      
+      test("ex 17", () {
+        l02ex17.main();
+        expectTrue(isPrinted('The Dart is a Hero',0));      
+      });
     });
   });  
 }
