@@ -36,6 +36,9 @@ import 'package:heroicdart/level2/ex19.dart' as l02ex19;
 import 'package:heroicdart/level2/ex20.dart' as l02ex20;
 import 'package:heroicdart/level2/ex21.dart' as l02ex21;
 import 'package:heroicdart/level2/ex22.dart' as l02ex22;
+import 'package:heroicdart/level2/ex23.dart' as l02ex23;
+import 'package:heroicdart/level2/ex24.dart' as l02ex24;
+import 'package:heroicdart/level2/ex25.dart' as l02ex25;
 
 // don't bother actually outputting all the "print" statements to the console.
 final PRINT_TO_CONSOLE = false;
@@ -296,10 +299,8 @@ level2tests() {
       });
     });
     
-    group("Functions as objects:", () {
-      
+    group("Functions as objects:", () {      
       test("ex 19", () {
-        printSetup(printToConsole: true);
         l02ex19.main();
         expectTrue(isPrinted("Closure: (String, {catchphrase: String}) => String from Function 'getCatchphrase': static."));      
       });
@@ -317,6 +318,31 @@ level2tests() {
       test("ex 22", () {
         l02ex22.main();
         expectTrue(isPrinted('The Dart says "Hello"'));      
+      });
+    });
+    
+    group("Functions as arguments:", () {
+      test("ex 23", () {
+        l02ex23.main();
+        expectTrue(isPrinted('The Dart multiplies: 50 x 3 = 150',0));
+        expectTrue(isPrinted('Prof. Polymer adds: 3 + 50 = 53',1));
+      });
+      
+      test("ex 24", () {
+        l02ex24.main();
+        expectTrue(isPrinted('The Dart multiplies: 50 x 3 = 150',0));
+        expectTrue(isPrinted('Prof. Polymer adds: 3 + 50 = 53',1));
+      });
+      
+      
+    });
+    
+    group("Functions as arguments:", () {
+      test("ex 25", () {
+        printSetup(printToConsole: true);
+        l02ex25.main();
+        expectTrue(isPrinted('We do some calculations: 50 x 3 = 150',0));
+        expectTrue(isPrinted('We do some calculations: 3 + 50 = 53',1));
       });
     });
   });  
