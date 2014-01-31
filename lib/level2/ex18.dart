@@ -1,4 +1,4 @@
-library level02_ex17;
+library level02_ex18;
 
 import 'package:heroicdart/printutils.dart';
 import 'dart:core' hide print;
@@ -13,6 +13,9 @@ checkHeroOrSidekick(String name, {heroText:"Hero", sidekickText:"Sidekick"}) {
 }
 
 main() {
-  var status = checkHeroOrSidekick("The Dart");
+  var status = checkHeroOrSidekick("Captain Dart", heroText: 'Superhero'); 
   print("Captain Dart is a $status");  
+
+  status = checkHeroOrSidekick("Bullseye",sidekickText:'super-dog');   
+  print("Bullseye is a $status");  
 }

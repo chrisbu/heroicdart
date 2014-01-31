@@ -11,7 +11,7 @@ core.List printed = [];
 core.bool showOutput = false;
 
 print(msg) {
-  printed.add(msg);
+  printed.add(msg.toString()); // need to do the toString, because otherwise it doesn't like function closures.
   if (showOutput) corePrint(msg);
 }
 

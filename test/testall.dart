@@ -31,6 +31,11 @@ import 'package:heroicdart/level2/ex14.dart' as l02ex14;
 import 'package:heroicdart/level2/ex15.dart' as l02ex15;
 import 'package:heroicdart/level2/ex16.dart' as l02ex16;
 import 'package:heroicdart/level2/ex17.dart' as l02ex17;
+import 'package:heroicdart/level2/ex18.dart' as l02ex18;
+import 'package:heroicdart/level2/ex19.dart' as l02ex19;
+import 'package:heroicdart/level2/ex20.dart' as l02ex20;
+import 'package:heroicdart/level2/ex21.dart' as l02ex21;
+import 'package:heroicdart/level2/ex22.dart' as l02ex22;
 
 // don't bother actually outputting all the "print" statements to the console.
 final PRINT_TO_CONSOLE = false;
@@ -281,7 +286,37 @@ level2tests() {
       
       test("ex 17", () {
         l02ex17.main();
-        expectTrue(isPrinted('The Dart is a Hero',0));      
+        expectTrue(isPrinted('Captain Dart is a Hero'));      
+      });
+      
+      test("ex 18", () {
+        l02ex18.main();
+        expectTrue(isPrinted('Captain Dart is a Superhero',0));      
+        expectTrue(isPrinted('Bullseye is a super-dog',1));
+      });
+    });
+    
+    group("Functions as objects:", () {
+      
+      test("ex 19", () {
+        printSetup(printToConsole: true);
+        l02ex19.main();
+        expectTrue(isPrinted("Closure: (String, {catchphrase: String}) => String from Function 'getCatchphrase': static."));      
+      });
+      
+      test("ex 20", () {
+        l02ex20.main();
+        expectTrue(isPrinted('The Dart says "Hello"'));      
+      });
+      
+      test("ex 21", () {
+        l02ex21.main();
+        expectTrue(isPrinted('The Dart says "Hello"'));      
+      });
+      
+      test("ex 22", () {
+        l02ex22.main();
+        expectTrue(isPrinted('The Dart says "Hello"'));      
       });
     });
   });  
