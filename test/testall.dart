@@ -43,6 +43,7 @@ import 'package:heroicdart/level2/ex25.dart' as l02ex25;
 // level 3
 import 'package:heroicdart/level3/ex01.dart' as l03ex01;
 import 'package:heroicdart/level3/ex02.dart' as l03ex02;
+import 'package:heroicdart/level3/ex02a.dart' as l03ex02a;
 import 'package:heroicdart/level3/ex03.dart' as l03ex03;
 import 'package:heroicdart/level3/ex04.dart' as l03ex04;
 import 'package:heroicdart/level3/ex05.dart' as l03ex05;
@@ -383,6 +384,12 @@ level3tests() {
         l03ex02.main();
         expectTrue(isPrinted('List: [Coding, Testing, Flight, Speed, Coding]',0));
         expectTrue(isPrinted('Set: {Coding, Testing, Flight, Speed}',1));
+      });
+      
+      test("ex 2a", () {
+        l03ex02a.main();
+        expectTrue(isPrinted('Testing',0));
+        expectTrue(isPrinted('[Coding, Unit testing, Flight, Speed]',1));
       });
       
       test("ex 3", () {
