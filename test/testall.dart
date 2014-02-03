@@ -40,6 +40,20 @@ import 'package:heroicdart/level2/ex23.dart' as l02ex23;
 import 'package:heroicdart/level2/ex24.dart' as l02ex24;
 import 'package:heroicdart/level2/ex25.dart' as l02ex25;
 
+// level 3
+import 'package:heroicdart/level3/ex01.dart' as l03ex01;
+import 'package:heroicdart/level3/ex02.dart' as l03ex02;
+import 'package:heroicdart/level3/ex03.dart' as l03ex03;
+import 'package:heroicdart/level3/ex04.dart' as l03ex04;
+import 'package:heroicdart/level3/ex05.dart' as l03ex05;
+import 'package:heroicdart/level3/ex06.dart' as l03ex06;
+import 'package:heroicdart/level3/ex07.dart' as l03ex07;
+import 'package:heroicdart/level3/ex08.dart' as l03ex08;
+import 'package:heroicdart/level3/ex09.dart' as l03ex09;
+import 'package:heroicdart/level3/ex10.dart' as l03ex10;
+import 'package:heroicdart/level3/ex11.dart' as l03ex11;
+
+
 // don't bother actually outputting all the "print" statements to the console.
 final PRINT_TO_CONSOLE = false;
 
@@ -56,6 +70,7 @@ main() {
     
     group("Level 1:", level1tests);
     group("Level 2:", level2tests);
+    group("Level 3:", level3tests);
   });
   
 }
@@ -339,7 +354,6 @@ level2tests() {
     
     group("Closures:", () {
       test("ex 25", () {
-        printSetup(printToConsole: true);
         l02ex25.main();
         expectTrue(isPrinted('We do some calculations: 50 x 3 = 150',0));
         expectTrue(isPrinted('We do some calculations: 3 + 50 = 53',1));
@@ -347,3 +361,79 @@ level2tests() {
     });
   });  
 }
+
+level3tests() {
+  group("Heroic Collections:", () {
+    group("Iterables:", () {
+      test("ex 1", () {
+        l03ex01.main();
+        expectTrue(isPrinted('Iterating list items',0));
+        expectTrue(isPrinted('Coding',1));
+        expectTrue(isPrinted('Testing',2));
+        expectTrue(isPrinted('Flight',3));
+        expectTrue(isPrinted('Speed',4));
+        expectTrue(isPrinted('Iterating set items',5));
+        expectTrue(isPrinted('Coding',6));
+        expectTrue(isPrinted('Testing',7));
+        expectTrue(isPrinted('Flight',8));
+        expectTrue(isPrinted('Speed',9));
+      });
+      
+      test("ex 2", () {
+        l03ex02.main();
+        expectTrue(isPrinted('List: [Coding, Testing, Flight, Speed, Coding]',0));
+        expectTrue(isPrinted('Set: {Coding, Testing, Flight, Speed}',1));
+      });
+      
+      test("ex 3", () {
+        l03ex03.main();
+        expectTrue(isPrinted('The Dart has Coding, Testing, Flight, Speed superpowers'));
+      });
+      
+      test("ex 4", () {
+        l03ex04.main();
+        expectTrue(isPrinted('true'));
+      });
+  
+      test("ex 5", () {
+        l03ex05.main();
+        expectTrue(isPrinted('Testing'));
+      });
+      
+      test("ex 6", () {
+        l03ex06.main();
+        expectTrue(isPrinted('SuperCoding',0));
+        expectTrue(isPrinted('SuperTesting',1));
+        expectTrue(isPrinted('SuperFlight',2));
+        expectTrue(isPrinted('SuperSpeed',3));        
+      });
+      
+      test("ex 7", () {
+        l03ex07.main();
+        expectTrue(isPrinted('(6, 7, 6, 5)'));
+      });
+      
+      test("ex 8", () {
+        l03ex08.main();
+        expectTrue(isPrinted('24'));
+      });
+      
+      test("ex 9", () {
+        l03ex09.main();
+        expectTrue(isPrinted('13'));
+      });
+      
+      test("ex 10", () {
+        l03ex10.main();
+        expectTrue(isPrinted('(Coding, Testing)'));
+      });
+      
+      test("ex 11", () {
+        l03ex11.main();     
+        expectTrue(isPrinted('Heroic coding includes: SuperCoding, SuperTesting'));
+      });
+    });
+  });
+}
+
+
