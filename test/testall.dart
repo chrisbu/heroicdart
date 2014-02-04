@@ -53,6 +53,15 @@ import 'package:heroicdart/level3/ex08.dart' as l03ex08;
 import 'package:heroicdart/level3/ex09.dart' as l03ex09;
 import 'package:heroicdart/level3/ex10.dart' as l03ex10;
 import 'package:heroicdart/level3/ex11.dart' as l03ex11;
+import 'package:heroicdart/level3/ex12.dart' as l03ex12;
+import 'package:heroicdart/level3/ex13.dart' as l03ex13;
+import 'package:heroicdart/level3/ex14.dart' as l03ex14;
+import 'package:heroicdart/level3/ex15.dart' as l03ex15;
+import 'package:heroicdart/level3/ex16.dart' as l03ex16;
+import 'package:heroicdart/level3/ex17.dart' as l03ex17;
+import 'package:heroicdart/level3/ex18.dart' as l03ex18;
+import 'package:heroicdart/level3/ex19.dart' as l03ex19;
+import 'package:heroicdart/level3/ex20.dart' as l03ex20;
 
 
 // don't bother actually outputting all the "print" statements to the console.
@@ -438,6 +447,62 @@ level3tests() {
       test("ex 11", () {
         l03ex11.main();     
         expectTrue(isPrinted('Heroic coding includes: SuperCoding, SuperTesting'));
+      });
+    });
+    
+    group("Maps:", () {
+      test("ex 12", () {
+        l03ex12.main();
+        expectTrue(isPrinted('heroMap: {The Dart: Hero, Prof. Polymer: Sidekick}'));        
+      });
+      
+      test("ex 13", () {
+        l03ex13.main();
+        expectTrue(isPrinted("Captain Dart's status is: Hero"));        
+      });
+      
+      test("ex 14", () {
+        l03ex14.main();
+        expectTrue(isPrinted("Bullseye's status is: Sidekick"));        
+      });
+      
+      test("ex 15", () {
+        l03ex15.main();
+        expectTrue(isPrinted("The Dart is null",0));        
+        expectTrue(isPrinted("Prof. Polymer is null",1));
+      });
+      
+      test("ex 16", () {
+        l03ex16.main();
+        expectTrue(isPrinted("Prof. Polymer isn't in the map",0));        
+        expectTrue(isPrinted("Adding Prof. Polymer",1));
+        expectTrue(isPrinted("{The Dart: null, Prof. Polymer: Sidekick}",2));
+      });
+      
+      test("ex 17", () {
+        l03ex17.main();
+        expectTrue(isPrinted("{The Dart: null, Captain Dart: Hero}"));
+      });
+
+      test("ex 18", () {
+        printSetup(printToConsole: true);
+        l03ex18.main();
+        expectTrue(isPrinted("Reading cache for key: The Dart",0));
+        expectTrue(isPrinted("Cache miss for key: The Dart",1));
+        expectTrue(isPrinted("Reading cache for key: The Dart",2));
+        expectTrue(isPrinted("heroMap contains: {The Dart: Hero}",3));
+      });
+      
+      test("ex 19", () {
+        l03ex19.main();
+        expectTrue(isPrinted("The Dart: status = Hero",0));
+        expectTrue(isPrinted("Prof. Polymer: status = Sidekick",1));
+      });
+      
+      test("ex 20", () {
+        l03ex20.main();
+        expectTrue(isPrinted("The Dart: status = Hero",0));
+        expectTrue(isPrinted("Prof. Polymer: status = Sidekick",1));
       });
     });
   });
