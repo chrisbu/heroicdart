@@ -71,6 +71,9 @@ import 'package:heroicdart/level4/ex02.dart' as l04ex02;
 import 'package:heroicdart/level4/ex03.dart' as l04ex03;
 import 'package:heroicdart/level4/ex04.dart' as l04ex04;
 import 'package:heroicdart/level4/ex05.dart' as l04ex05;
+import 'package:heroicdart/level4/ex06.dart' as l04ex06;
+import 'package:heroicdart/level4/ex07.dart' as l04ex07;
+import 'package:heroicdart/level4/ex08.dart' as l04ex08;
 
 // don't bother actually outputting all the "print" statements to the console.
 final PRINT_TO_CONSOLE = false;
@@ -542,7 +545,9 @@ level4tests() {
         expectTrue(isPrinted('null',1));
         expectTrue(isPrinted('2. Main finished',2));
       });
-      
+    });
+    
+    group('Heroes from the future', () {
       test("ex 04", () {
         l04ex04.main();
         expectTrue(isPrinted('1. Main started',0));
@@ -556,6 +561,38 @@ level4tests() {
         expectTrue(isPrinted('2. Main finished',1));
         new Timer(new Duration(milliseconds:1500), expectAsync0(() {
           expectTrue(isPrinted('The Dart says "Code like a hero!"',2));
+        }));
+      });
+      
+      test("ex 06", () {
+        l04ex06.main();
+        expectTrue(isPrinted('1. Main started',0));
+        expectTrue(isPrinted('2. Main finished',1));
+        new Timer(new Duration(milliseconds:1500), expectAsync0(() {
+          expectTrue(isPrinted('The Dart says "Code like a hero!"',2));
+        }));
+      });
+    });
+    
+    group('Reading streams of data', (){
+      test("ex 07", () {
+        l04ex07.main();
+        new Timer(new Duration(milliseconds:4500), expectAsync0(() {
+          expectTrue(isPrinted('Just seen: The Dart',0));
+          expectTrue(isPrinted('Just seen: Prof. Polymer',1));
+          expectTrue(isPrinted('Just seen: Captain Dart',2));
+          expectTrue(isPrinted('Just seen: Bullseye',3));
+        }));
+      });
+      
+      test("ex 08", () {
+        l04ex08.main();
+        new Timer(new Duration(milliseconds:5500), expectAsync0(() {
+          expectTrue(isPrinted('Just seen: The Dart',0));
+          expectTrue(isPrinted('Just seen: Prof. Polymer',1));
+          expectTrue(isPrinted('Just seen: Captain Dart',2));
+          expectTrue(isPrinted('Just seen: Bullseye',3));
+          expectTrue(isPrinted('No more heroes (anymore)',4));
         }));
       });
     });
