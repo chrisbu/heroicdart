@@ -1,5 +1,6 @@
 import 'package:unittest/unittest.dart';
 import 'package:heroicdart/printutils.dart' hide print;
+import 'dart:async';
 
 // level 1
 import 'package:heroicdart/level1/ex01.dart' as l01ex01;
@@ -64,6 +65,13 @@ import 'package:heroicdart/level3/ex19.dart' as l03ex19;
 import 'package:heroicdart/level3/ex20.dart' as l03ex20;
 
 
+// level 4
+import 'package:heroicdart/level4/ex01.dart' as l04ex01;
+import 'package:heroicdart/level4/ex02.dart' as l04ex02;
+import 'package:heroicdart/level4/ex03.dart' as l04ex03;
+import 'package:heroicdart/level4/ex04.dart' as l04ex04;
+import 'package:heroicdart/level4/ex05.dart' as l04ex05;
+
 // don't bother actually outputting all the "print" statements to the console.
 final PRINT_TO_CONSOLE = false;
 
@@ -81,6 +89,7 @@ main() {
     group("Level 1:", level1tests);
     group("Level 2:", level2tests);
     group("Level 3:", level3tests);
+    group("Level 4:", level4tests);
   });
   
 }
@@ -485,7 +494,6 @@ level3tests() {
       });
 
       test("ex 18", () {
-        printSetup(printToConsole: true);
         l03ex18.main();
         expectTrue(isPrinted("Reading cache for key: The Dart",0));
         expectTrue(isPrinted("Cache miss for key: The Dart",1));
@@ -508,4 +516,48 @@ level3tests() {
   });
 }
 
-
+level4tests() {
+  group("Asynchronous Dart:", () {
+    group("Seeing into the future:", () {
+      
+      test("ex 01", () {
+        l04ex01.main();
+        expectTrue(isPrinted('1. Main started',0));
+        expectTrue(isPrinted('2. Main finished',1));
+        new Timer(new Duration(milliseconds:1500), expectAsync0(() => expectTrue(isPrinted('3. One second elapsed',2))));
+      });
+      
+      test("ex 02", () {
+        l04ex02.main();
+        expectTrue(isPrinted('1. Main started',0));
+        expectTrue(isPrinted('2. Main finished',1));
+        new Timer(new Duration(milliseconds:1500), expectAsync0(() {
+          expectTrue(isPrinted('The Dart says "Code like a hero!"',2));
+        }));
+      });
+      
+      test("ex 03", () {
+        l04ex03.main();
+        expectTrue(isPrinted('1. Main started',0));
+        expectTrue(isPrinted('null',1));
+        expectTrue(isPrinted('2. Main finished',2));
+      });
+      
+      test("ex 04", () {
+        l04ex04.main();
+        expectTrue(isPrinted('1. Main started',0));
+        expectTrue(printedContains("Instance of '_Future'"));
+        expectTrue(isPrinted('2. Main finished',2));
+      });
+      
+      test("ex 05", () {
+        l04ex05.main();
+        expectTrue(isPrinted('1. Main started',0));
+        expectTrue(isPrinted('2. Main finished',1));
+        new Timer(new Duration(milliseconds:1500), expectAsync0(() {
+          expectTrue(isPrinted('The Dart says "Code like a hero!"',2));
+        }));
+      });
+    });
+  });
+}
