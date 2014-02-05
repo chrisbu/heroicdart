@@ -18,6 +18,8 @@ print(msg) {
 // Allow real printing from core
 corePrint(msg) => core.print("PRINTING: $msg");
 
+
+
 /// returns true if the thing was printed
 core.bool isPrinted(expect, [elementIndex]) {
   if (elementIndex == null) {
