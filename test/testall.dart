@@ -74,6 +74,9 @@ import 'package:heroicdart/level4/ex05.dart' as l04ex05;
 import 'package:heroicdart/level4/ex06.dart' as l04ex06;
 import 'package:heroicdart/level4/ex07.dart' as l04ex07;
 import 'package:heroicdart/level4/ex08.dart' as l04ex08;
+import 'package:heroicdart/level4/ex09.dart' as l04ex09;
+import 'package:heroicdart/level4/ex10.dart' as l04ex10;
+import 'package:heroicdart/level4/ex11.dart' as l04ex11;
 
 // don't bother actually outputting all the "print" statements to the console.
 final PRINT_TO_CONSOLE = false;
@@ -593,6 +596,36 @@ level4tests() {
           expectTrue(isPrinted('Just seen: Captain Dart',2));
           expectTrue(isPrinted('Just seen: Bullseye',3));
           expectTrue(isPrinted('No more heroes (anymore)',4));
+        }));
+      });
+      
+      test("ex 09", () {
+        l04ex09.main();
+        new Timer(new Duration(milliseconds:5500), expectAsync0(() {
+          expectTrue(isPrinted('Seen hero: The Dart',0));
+          expectTrue(isPrinted('Seen hero: Captain Dart',1));
+          expectTrue(isPrinted('No more heroes (anymore)',2));
+        }));
+      });
+      
+      test("ex 10", () {
+        l04ex10.main();
+        new Timer(new Duration(milliseconds:5500), expectAsync0(() {
+          expectTrue(isPrinted('Seen hero: The Dart',0));
+          expectTrue(isPrinted('Seen hero: Captain Dart',1));
+          expectTrue(isPrinted('No more heroes (anymore)',2));
+        }));
+      });
+      
+      test("ex 11", () {
+        l04ex11.main();
+        new Timer(new Duration(milliseconds:5500), expectAsync0(() {
+          expectTrue(isPrinted('Seen hero: The Dart',0));
+          expectTrue(isPrinted('Seen sidekick: Prof. Polymer',1));
+          expectTrue(isPrinted('Seen hero: Captain Dart',2));
+          expectTrue(isPrinted('Seen sidekick: Bullseye',3));
+          expectTrue(isPrinted('No more heroes (anymore)',4));
+          expectTrue(isPrinted('No more sidekicks (anymore)',5));
         }));
       });
     });
