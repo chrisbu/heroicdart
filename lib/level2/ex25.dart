@@ -23,7 +23,7 @@ main() {
   var answer1 = heroCalculator(50,3, theDartMultiplies);
   print(answer1);
   
-  var answer2 = heroCalculator(3,50, profPolymerSquares);
+  var answer2 = heroCalculator(3,3, profPolymerSquares);
   print(answer2);
 }
 
