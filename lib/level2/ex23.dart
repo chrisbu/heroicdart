@@ -5,7 +5,7 @@ import 'dart:core' hide print;
 export 'package:heroicdart/printutils.dart' show printSetup, isPrinted;
 
 
-String heroCalculator(num x, num y, calcFunction(n,m)) {
+String heroCalculator(num x, num y, String calcFunction(n,m)) {
   if (x == 0 && y == 0) {
     return "That's not a heroic sum";
   } else {

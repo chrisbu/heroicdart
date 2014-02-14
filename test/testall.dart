@@ -15,6 +15,8 @@ import 'package:heroicdart/level1/ex09.dart' as l01ex09;
 
 // level 2
 import 'package:heroicdart/level2/ex01.dart' as l02ex01;
+import 'package:heroicdart/level2/ex01a.dart' as l02ex01a;
+import 'package:heroicdart/level2/ex01b.dart' as l02ex01b;
 import 'package:heroicdart/level2/ex02.dart' as l02ex02;
 import 'package:heroicdart/level2/ex03.dart' as l02ex03;
 import 'package:heroicdart/level2/ex04.dart' as l02ex04;
@@ -202,6 +204,22 @@ level2tests() {
         expectTrue(isPrinted('The Dart says "Code like a hero with Dart"',2));      
       });
       
+      test("ex 1a", () {
+        l02ex01a.main();
+        expectTrue(isPrinted('true says "555"'));
+      });
+      
+      test("ex 1a", () {
+        var error = null;
+        try {
+          l02ex01b.main();
+        }
+        on TypeError catch (e) {
+          error = e;          
+        }
+        error.toString().contains("type 'String' is not a subtype of type 'num' of 'other");
+      });
+      
       test("ex 2", () {
         var error = null;
         try {
@@ -380,8 +398,8 @@ level2tests() {
     group("Closures:", () {
       test("ex 25", () {
         l02ex25.main();
-        expectTrue(isPrinted('We do some calculations: 50 x 3 = 150',0));
-        expectTrue(isPrinted('We do some calculations: 3 + 50 = 53',1));
+        expectTrue(isPrinted('The Dart multiplies: 50 x 3 = 150',0));
+        expectTrue(isPrinted('Prof. Polymer adds: 3 x 50 = 150',1));
       });
     });
   });  
