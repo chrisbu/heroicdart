@@ -396,8 +396,7 @@ level2tests() {
     });
     
     group("Closures:", () {
-      test("ex 25", () {
-        printSetup(printToConsole: true);
+      test("ex 25", () {        
         l02ex25.main();
         expectTrue(isPrinted('The Dart multiplies: 50 x 3 = 150',0));
         expectTrue(isPrinted('Prof. Polymer squares: 3 x 3 = 9',1));
