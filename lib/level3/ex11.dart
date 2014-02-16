@@ -5,8 +5,8 @@ import 'dart:core' hide print;
 export 'package:heroicdart/printutils.dart' show printSetup, isPrinted;
 
 main() {
-  var powerList = ['Coding', 'Testing', 'Flight', 'Speed'];
-  var powerText = powerList.where((element) => element.endsWith('ing'))
+  var powers = ['Coding', 'Testing', 'Flight', 'Speed'];
+  var powerText = powers.where((element) => element.endsWith('ing'))
       .map((element) => 'Super$element')
       .join(', ');
   

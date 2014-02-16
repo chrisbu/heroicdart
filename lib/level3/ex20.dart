@@ -5,7 +5,7 @@ import 'dart:core' hide print;
 export 'package:heroicdart/printutils.dart' show printSetup, isPrinted;
 
 main() {
-  var heroMap = {'The Dart':'Hero', 'Prof. Polymer':'Sidekick'};
+  var heroes = {'The Dart':'Hero', 'Prof. Polymer':'Sidekick'};
   
-  heroMap.forEach( (key, value) => print('$key: status = $value'));
+  heroes.forEach( (key, value) => print('$key: status = $value'));
 }

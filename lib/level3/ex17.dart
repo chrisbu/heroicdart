@@ -5,13 +5,13 @@ import 'dart:core' hide print;
 export 'package:heroicdart/printutils.dart' show printSetup, isPrinted;
 
 main() {
-  var heroMap = {'The Dart':null};
+  var heroes = {'The Dart':null};
   
-  heroMap.putIfAbsent('Captain Dart', () {
+  heroes.putIfAbsent('Captain Dart', () {
     return 'Hero';
   });
   
-  heroMap.putIfAbsent('Captain Dart', () => 'Hero');
+  heroes.putIfAbsent('Captain Dart', () => 'Hero');
 
-  print(heroMap);  
+  print(heroes);  
 }

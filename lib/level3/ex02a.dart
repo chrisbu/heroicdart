@@ -6,7 +6,10 @@ export 'package:heroicdart/printutils.dart' show printSetup, isPrinted;
 
 main() { 
   var powerList = ['Coding', 'Testing', 'Flight', 'Speed'];
-  print(powerList[1]);
-  powerList[1] = 'Unit testing';
-  print(powerList);
+  powerList.add('Coding');
+  print('List: $powerList');
+  
+  var powerSet = new Set.from(powerList);
+  powerSet.add('Coding');
+  print('Set: $powerSet');
 }

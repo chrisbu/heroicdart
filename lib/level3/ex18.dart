@@ -12,21 +12,21 @@ String checkHeroOrSidekick(String name) {
   }
 }
 
-String getFromCache(Map cacheMap, String key) {
+String getFromCache(Map cache, String key) {
  print('Reading cache for key: $key');
- return cacheMap.putIfAbsent(key, () {
+ return cache.putIfAbsent(key, () {
    print('Cache miss for key: $key');
    return checkHeroOrSidekick(key); 
  });
 }
 
 main() {
-  var heroMap = {};
-  var theDartStatus = getFromCache(heroMap, 'The Dart');
+  var heroes = {};
+  var theDartStatus = getFromCache(heroes, 'The Dart');
   
   // later:  
-  var theDartAgain = getFromCache(heroMap, 'The Dart');
+  var theDartAgain = getFromCache(heroes, 'The Dart');
   
   
-  print('heroMap contains: $heroMap');
+  print('heroMap contains: $heroes');
 }

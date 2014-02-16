@@ -5,10 +5,10 @@ import 'dart:core' hide print;
 export 'package:heroicdart/printutils.dart' show printSetup, isPrinted;
 
 main() {
-  var heroMap = {'The Dart':'Hero', 'Prof. Polymer':'Sidekick'};
+  var heroes = {'The Dart':'Hero', 'Prof. Polymer':'Sidekick'};
   
-  for (var key in heroMap.keys) {
-    var value = heroMap[key];
+  for (var key in heroes.keys) {
+    var value = heroes[key];
     print('$key: status = $value');
   }
 }

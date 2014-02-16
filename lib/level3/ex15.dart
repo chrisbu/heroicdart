@@ -5,10 +5,10 @@ import 'dart:core' hide print;
 export 'package:heroicdart/printutils.dart' show printSetup, isPrinted;
 
 main() {
-  var heroMap = {'The Dart':null};
+  var heroes = {'The Dart':null};
   
-  var theDartValue = heroMap['The Dart'];
-  var profPolymerValue = heroMap['Prof. Polymer'];
+  var theDartValue = heroes['The Dart'];
+  var profPolymerValue = heroes['Prof. Polymer'];
 
   print("The Dart is $theDartValue");
   print("Prof. Polymer is $profPolymerValue");

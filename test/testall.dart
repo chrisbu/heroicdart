@@ -410,28 +410,23 @@ level3tests() {
     group("Iterables:", () {
       test("ex 1", () {
         l03ex01.main();
-        expectTrue(isPrinted('Iterating list items',0));
+        expectTrue(isPrinted('Displaying heroic powers',0));
         expectTrue(isPrinted('Coding',1));
         expectTrue(isPrinted('Testing',2));
         expectTrue(isPrinted('Flight',3));
         expectTrue(isPrinted('Speed',4));
-        expectTrue(isPrinted('Iterating set items',5));
-        expectTrue(isPrinted('Coding',6));
-        expectTrue(isPrinted('Testing',7));
-        expectTrue(isPrinted('Flight',8));
-        expectTrue(isPrinted('Speed',9));
       });
       
       test("ex 2", () {
         l03ex02.main();
-        expectTrue(isPrinted('List: [Coding, Testing, Flight, Speed, Coding]',0));
-        expectTrue(isPrinted('Set: {Coding, Testing, Flight, Speed}',1));
+        expectTrue(isPrinted('Testing',0));
+        expectTrue(isPrinted('[Coding, Unit testing, Flight, Speed]',1));
       });
       
       test("ex 2a", () {
         l03ex02a.main();
-        expectTrue(isPrinted('Testing',0));
-        expectTrue(isPrinted('[Coding, Unit testing, Flight, Speed]',1));
+        expectTrue(isPrinted('List: [Coding, Testing, Flight, Speed, Coding]',0));
+        expectTrue(isPrinted('Set: {Coding, Testing, Flight, Speed}',1));
       });
       
       test("ex 3", () {
@@ -486,17 +481,17 @@ level3tests() {
     group("Maps:", () {
       test("ex 12", () {
         l03ex12.main();
-        expectTrue(isPrinted('heroMap: {The Dart: Hero, Prof. Polymer: Sidekick}'));        
+        expectTrue(isPrinted('powers: {The Dart: [Speed, Agility], Prof. Polymer: Super Hearing}'));        
       });
       
       test("ex 13", () {
         l03ex13.main();
-        expectTrue(isPrinted("Captain Dart's status is: Hero"));        
+        expectTrue(isPrinted("Captain Dart's power is: [Strength, Flying]"));        
       });
       
       test("ex 14", () {
         l03ex14.main();
-        expectTrue(isPrinted("Bullseye's status is: Sidekick"));        
+        expectTrue(isPrinted("Bullseye's status is: [Talking to animals]"));        
       });
       
       test("ex 15", () {

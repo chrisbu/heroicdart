@@ -5,7 +5,7 @@ import 'dart:core' hide print;
 export 'package:heroicdart/printutils.dart' show printSetup, isPrinted;
 
 main() {
-  var heroMap = {'The Dart':'Hero', 'Prof. Polymer':'Sidekick'}; 
-  
-  print("heroMap: ${heroMap}");
+  var powers = {'The Dart':['Speed', 'Agility'], 'Prof. Polymer':'Super Hearing'}; 
+
+  print("powers: ${powers}");
 }

@@ -5,16 +5,16 @@ import 'dart:core' hide print;
 export 'package:heroicdart/printutils.dart' show printSetup, isPrinted;
 
 main() {
-  var heroMap = {'The Dart':null};
+  var heroes = {'The Dart':null};
   
-  if (!heroMap.containsKey('Prof. Polymer')) {
+  if (!heroes.containsKey('Prof. Polymer')) {
     print("Prof. Polymer isn't in the map");
   }
   
-  heroMap.putIfAbsent('Prof. Polymer', () {
+  heroes.putIfAbsent('Prof. Polymer', () {
     print("Adding Prof. Polymer");
     return 'Sidekick';
   });
   
-  print(heroMap);  
+  print(heroes);  
 }

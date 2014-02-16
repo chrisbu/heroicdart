@@ -5,10 +5,11 @@ import 'dart:core' hide print;
 export 'package:heroicdart/printutils.dart' show printSetup, isPrinted;
 
 main() {
-  var heroMap = {'The Dart':'Hero', 'Prof. Polymer':'Sidekick'};
-  
-  heroMap['Captain Dart'] = 'Hero'; 
-  var status = heroMap['Captain Dart']; 
+  var powers = {'The Dart':['Speed', 'Agility'], 'Prof. Polymer':'Super Hearing'}; 
 
-  print("Captain Dart's status is: $status");
+  
+  powers['Captain Dart'] = ['Strength', 'Flying']; 
+  var power = powers['Captain Dart']; 
+
+  print("Captain Dart's power is: $power");
 }
