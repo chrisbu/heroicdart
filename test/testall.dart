@@ -85,6 +85,11 @@ import 'package:heroicdart/level5/ex01.dart' as l05ex01;
 import 'package:heroicdart/level5/ex02.dart' as l05ex02;
 import 'package:heroicdart/level5/ex03.dart' as l05ex03;
 import 'package:heroicdart/level5/ex04.dart' as l05ex04;
+import 'package:heroicdart/level5/ex05.dart' as l05ex05;
+import 'package:heroicdart/level5/ex06.dart' as l05ex06;
+import 'package:heroicdart/level5/ex07.dart' as l05ex07;
+import 'package:heroicdart/level5/ex08.dart' as l05ex08;
+import 'package:heroicdart/level5/ex09.dart' as l05ex09;
 
 
 // don't bother actually outputting all the "print" statements to the console.
@@ -101,10 +106,10 @@ main() {
 
     setUp(() => printSetup(printToConsole:PRINT_TO_CONSOLE)); // clear the print buffer before each test
     
-//    group("Level 1:", level1tests);
-//    group("Level 2:", level2tests);
-//    group("Level 3:", level3tests);
-//    group("Level 4:", level4tests);
+    group("Level 1:", level1tests);
+    group("Level 2:", level2tests);
+    group("Level 3:", level3tests);
+    group("Level 4:", level4tests);
     group("Level 5:", level5tests);
   });
   
@@ -678,6 +683,37 @@ level5tests() {
         l05ex04.main();
         expectTrue(isPrinted("My Hero is Captain Dart",0));        
         expectTrue(isPrinted("Captain Dart enjoys Coding & Testing",1));
+      });
+      
+      test("ex 05", () {
+        l05ex05.main();
+        expectTrue(isPrinted('The Dart says "Code like a hero!"'));        
+      });
+      
+      test("ex 06", () {
+        l05ex06.main();
+        expectTrue(isPrinted("The Dart uses Speed",0));        
+        expectTrue(isPrinted("The Dart uses Agility",1));
+      });
+      
+      test("ex 07", () {
+        l05ex07.main();
+        expectTrue(isPrinted("The Dart",0));        
+        expectTrue(isPrinted("The Dart",1));
+      });
+      
+      test("ex 08", () {
+        l05ex08.main();
+        expectTrue(isPrinted('The Dart says "Code like a hero!"',0));
+        expectTrue(isPrinted("The Dart uses Speed",1));        
+        expectTrue(isPrinted("The Dart uses Agility",2));
+      });
+      
+      test("ex 09", () {
+        l05ex09.main();
+        expectTrue(isPrinted('The Dart says "Code like a hero!"',0));
+        expectTrue(isPrinted("The Dart uses Speed",1));        
+        expectTrue(isPrinted("The Dart uses Agility",2));
       });
     });
   });
