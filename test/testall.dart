@@ -80,6 +80,13 @@ import 'package:heroicdart/level4/ex09.dart' as l04ex09;
 import 'package:heroicdart/level4/ex10.dart' as l04ex10;
 import 'package:heroicdart/level4/ex11.dart' as l04ex11;
 
+// level 5
+import 'package:heroicdart/level5/ex01.dart' as l05ex01;
+import 'package:heroicdart/level5/ex02.dart' as l05ex02;
+import 'package:heroicdart/level5/ex03.dart' as l05ex03;
+import 'package:heroicdart/level5/ex04.dart' as l05ex04;
+
+
 // don't bother actually outputting all the "print" statements to the console.
 final PRINT_TO_CONSOLE = false;
 
@@ -94,10 +101,11 @@ main() {
 
     setUp(() => printSetup(printToConsole:PRINT_TO_CONSOLE)); // clear the print buffer before each test
     
-    group("Level 1:", level1tests);
-    group("Level 2:", level2tests);
-    group("Level 3:", level3tests);
-    group("Level 4:", level4tests);
+//    group("Level 1:", level1tests);
+//    group("Level 2:", level2tests);
+//    group("Level 3:", level3tests);
+//    group("Level 4:", level4tests);
+    group("Level 5:", level5tests);
   });
   
 }
@@ -644,3 +652,33 @@ level4tests() {
     });
   });
 }
+
+
+level5tests() {
+  group("Classes and Objects:", () {
+    group("Creating classes:", () {
+      
+      test("ex 01", () {
+        l05ex01.main();
+        expectTrue(isPrinted("Instance of 'Hero'"));        
+      });
+      
+      test("ex 02", () {
+        l05ex02.main();
+        expectTrue(isPrinted("Instance of 'Hero'",0));        
+        expectTrue(isPrinted("Instance of 'Sidekick'",1));
+      });
+      
+      test("ex 03", () {
+        l05ex03.main();
+        expectTrue(isPrinted("The Dart has [Speed, Agility]"));        
+      });
+      
+      test("ex 04", () {
+        l05ex04.main();
+        expectTrue(isPrinted("My Hero is Captain Dart",0));        
+        expectTrue(isPrinted("Captain Dart enjoys Coding & Testing",1));
+      });
+    });
+  });
+}       
